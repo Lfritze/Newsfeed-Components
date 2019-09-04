@@ -113,7 +113,7 @@ const data = [
 const articles = document.querySelector('.articles')
 
 
-function createComponent(array){
+function createArticle(array){
   // define the new elements
   const articleDiv = document.createElement('div');
   const titleH2 = document.createElement('h2');
@@ -143,25 +143,25 @@ function createComponent(array){
   p1.textContent = array.firstParagraph;
   p2.textContent = array.secondParagraph;
   p3.textContent = array.thirdParagraph;
-  span.textContent = ' Open...'
+  span.textContent = 'Open Sesame...'
 
  // toggle the content of the articles
- span.addEventListener('click',()=>{
+ span.addEventListener('click', () => {
   articleDiv.classList.toggle('article-open');
-   toggleBtntext()
+  toggleNext()
 })
 
 // change the text of the btn 
-const toggleBtntext =() =>{
-  articleDiv.classList.contains('article-open')? span.textContent = 'Open' 
-                                                : span.textContent = 'Close';
+const toggleNext = () =>{
+  articleDiv.classList.contains('article-open')? span.textContent = 'Minimize' 
+                                              : span.textContent = 'Open Again';
   }
   
   return articleDiv
 
 }
 
-data.map(article => articles.appendChild(createComponent(article)))
+data.map(data => articles.appendChild(createArticle(data)))
   
 
 
