@@ -110,45 +110,58 @@ const data = [
    
 //  }
 
-const articleKing = document.querySelector('.articles');
-data.map(article => {
-  articleKing.appendChild(createArticle(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph));
-});
+const articles = document.querySelector('.articles')
 
- function createArticle(title, date, p1, p2, p3) {
-  // Create elements
+
+function createComponent(array){
+  // define the new elements
   const articleDiv = document.createElement('div');
   const titleH2 = document.createElement('h2');
-  const dateText = document.createElement('p');
-  const paragraph1 = document.createElement('p');
-  const paragraph2 = document.createElement('p');
-  const paragraph3 = document.createElement('p');
-  const expandButton = document.createElement('span');
+  const pDate = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const span = document.createElement('span');
 
-//Setup structure of elements
+  // set up the structure 
   articleDiv.appendChild(titleH2);
-  articleDiv.appendChild(dateText);
-  articleDiv.appendChild(paragraph1, paragraph2, paragraph3);
-  articleDiv.appendChild(expandButton);                                                                                                                                                                                         
-  // set class names
-  articleDiv.classList.add('article');
-  dateText.classList.add('date');
-  expandButton.classList.add('expandButton');
+  articleDiv.appendChild(pDate);
+  articleDiv.appendChild(p1);
+  articleDiv.appendChild(p2)
+  articleDiv.appendChild(p3)
+  articleDiv.appendChild(span)
 
-//text content            
-  titleH2.textContent = title;
-  dateText.textContent = date;
-  paragraph1.textContent = p1;
-  paragraph2.textContent = p2;
-  paragraph3.textContent = p3;
-  expandButton.textContent = "Click Me!";
+  // add the name of classes to the new elements
+  articleDiv.classList.add('article')
+  pDate.classList.add('date');
+  span.classList.add('expandButton')
 
-  expandButton.addEventListener('click', event => {
+
+  // set up the text content
+  titleH2.textContent = array.title;
+  pDate.textContent = array.date;
+  p1.textContent = array.firstParagraph;
+  p2.textContent = array.secondParagraph;
+  p3.textContent = array.thirdParagraph;
+  span.textContent = ' Open...'
+
+ // toggle the content of the articles
+ span.addEventListener('click',()=>{
   articleDiv.classList.toggle('article-open');
-  });
+   toggleBtntext()
+})
 
-  return articleDiv;
+// change the text of the btn 
+const toggleBtntext =() =>{
+  articleDiv.classList.contains('article-open')? span.textContent = 'Open' 
+                                                : span.textContent = 'Close';
+  }
+  
+  return articleDiv
+
 }
+
+data.map(article => articles.appendChild(createComponent(article)))
   
 
 
