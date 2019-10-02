@@ -12,9 +12,9 @@ let menuItems = [
 // *****************STEP 1*********************************
 //   Step 1: Write a function that will create a menu component as seen below:
 
-document.querySelector('.header').appendChild(buildMenuOut(menuItems));
+document.querySelector('.header').appendChild(createMenu(menuItems));
 
-function buildMenuOut (infoInsideMenu) {
+function createMenu (menuInfo) {
   const menu = document.createElement('div');
   const menuList = document.createElement('ul');
 
@@ -29,12 +29,12 @@ function buildMenuOut (infoInsideMenu) {
   // Add those items to the <ul>
   // iterate means (forEach) under the hood it looks like this: for (i=0; i <0; i++)
 
-  infoInsideMenu.forEach(data => {
+  menuInfo.forEach(data => {
     // define new element -----------------------
-    const menuThing = document.createElement('li');
+    const menuItem = document.createElement('li');
     //set structure
-    menu.appendChild(menuThing)
-    menuThing.textContent = data;
+    menuList.appendChild(menuItem)
+    menuItem.textContent = data;
   });
 
 //***********************STEP 3*******************************
@@ -53,6 +53,7 @@ buttonForMenu.addEventListener('click', () => {
 return menu; // step 5
 }
 
+// step 6 - added to the DOM
 
 
 
