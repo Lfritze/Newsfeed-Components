@@ -26,11 +26,15 @@ function buildMenuOut (infoInsideMenu) {
 
   //   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
   // Add those items to the <ul>
+  // iterate means (forEach) under the hood it looks like this: for (i=0; i <0; i++)
 
   infoInsideMenu.forEach(dataFoo => {
     // define new element -----------------------
-    const menuThing = document.createElement
-  })
+    const createMenuLi = document.createElement('li');
+    //set structure
+    createMenuLi.appendChild(item)
+    item.textContent = dataFoo;
+  });
 
 }
 
