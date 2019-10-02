@@ -9,33 +9,48 @@ let menuItems = [
   'Log Out'
 ];
 
-// **************************************************
+// *****************STEP 1*********************************
 //   Step 1: Write a function that will create a menu component as seen below:
 
 document.querySelector('.header').appendChild(buildMenuOut(menuItems));
 
 function buildMenuOut (infoInsideMenu) {
-  const createMenu = document.createElement('div');
-  const createMenuUl = document.createElement('ul');
+  const menu = document.createElement('div');
+  const menuList = document.createElement('ul');
 
   // structure------------------------------------
-    createMenu.appendChild(createMenuUl);
+    menu.appendChild(menuList);
     
   // set class names --------------------------------
-  createMenu.classList.add('menu');
+  menu.classList.add('menu');
 
+//**********************STEP 2***********************************
   //   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
   // Add those items to the <ul>
   // iterate means (forEach) under the hood it looks like this: for (i=0; i <0; i++)
 
-  infoInsideMenu.forEach(dataFoo => {
+  infoInsideMenu.forEach(data => {
     // define new element -----------------------
-    const createMenuLi = document.createElement('li');
+    const menuThing = document.createElement('li');
     //set structure
-    createMenuLi.appendChild(item)
-    item.textContent = dataFoo;
+    menu.appendChild(menuThing)
+    menuThing.textContent = data;
   });
 
+//***********************STEP 3*******************************
+//   Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
+//<img class="menu-button" src="./assets/menu.png"/> This is from the index.html file
+
+const buttonForMenu = document.querySelector('.menu-button');
+
+//********************Step 4***********************
+// Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+
+buttonForMenu.addEventListener('click', () => {
+  menu.classList.toggle('menu--open');
+});
+
+return menu;
 }
 
 
