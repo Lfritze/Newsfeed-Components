@@ -85,8 +85,92 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+{
+  title: 'Imposter Syndrom Diagnosis',
+    date: 'May 344th, 2019',
+    firstParagraph: `Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost
+        Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot
+        snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods
+        yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon
+        knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed.
+        Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks`,
+
+    secondParagraph: `Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find Them. Bee in your bonnet Hand of Glory elder
+        wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir
+        mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma
+        and Parvati Sorting Hat Minister of Magic blue turban remember my last.`,
+
+    thirdParagraph: `Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights 
+        Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven 
+        roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot 
+        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
   }
+
+
 ];
+
+//***********************STEP 1*********************** */
+const articles = document.querySelector('.articles');
+
+function createArticleFunction(array) {
+  // div, h2, p, (3 more seperate <p><p><p>) <span>
+  // DEFINE new elements document.createElement()
+  const articleDiv = document.createElement('div');
+  // now the children
+    const titleHeading2 = document.createElement('h2');
+    const paraDate = document.createElement('p');
+    const paraOne = document.createElement('p');
+    const paraTwo = document.createElement('p');
+    const paraThree = document.createElement('p');
+    const articleSpan = document.createElement('span');
+
+
+//setup STRUCTURE .appendChild() articleDiv is the parent so we append the kids
+articleDiv.appendChild(titleHeading2);
+articleDiv.appendChild(paraDate);
+articleDiv.appendChild(paraOne);
+articleDiv.appendChild(paraTwo);
+articleDiv.appendChild(paraThree);
+articleDiv.appendChild(articleSpan);
+
+// Set CLASS NAMES
+// article, date, span (articleDiv, paraDate, articleSpan)
+articleDiv.classList.add('article');
+paraDate.classList.add('date');
+articleSpan.classList.add('expandButton');
+
+// SET TEXT CONTENT   .textContent
+// h2, p (span optional verbage)
+// titleHeading2, paraOne, paraTwo, paraThree, articleSpan
+//title, date, firstParagraph
+titleHeading2.textContent = array.title;
+paraDate.textContent = array.date;
+paraOne.textContent = array.firstParagraph;
+paraTwo.textContent = array.secondParagraph;
+paraThree.textContent = array.thirdParagraph;
+articleSpan.textContent = "Click Here"
+
+//***************STEP 2*************************
+ // toggle the content of the articles
+ articleSpan.addEventListener('click', () => {
+  articleDiv.classList.toggle('article-open');
+  toggleNext()
+})
+
+// change the text of the btn 
+const toggleNext = () =>{
+  articleDiv.classList.contains('article-open')? articleSpan.textContent = 'Minimize' 
+                                                : articleSpan.textContent = 'Open Again';
+  }
+  
+  return articleDiv
+
+}
+
+data.map(data => articles.appendChild(createArticleFunction(data)));
+
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
