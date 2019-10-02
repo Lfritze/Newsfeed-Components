@@ -88,8 +88,52 @@ const data = [
   }
 ];
 //***********************STEP 1*********************** */
+const articles = document.querySelector('.articles');
+
+function createArticleFunction(arrayFoo) {
+  // div, h2, p, (3 more seperate <p><p><p>) <span>
+  // DEFINE new elements document.createElement()
+  const articleDiv = document.createElement('div');
+  // now the children
+  const titleHeading2 = document.createElement('h2');
+  const paraDate = document.createElement('p');
+  const paraOne = document.createElement('p');
+  const paraTwo = document.createElement('p');
+  const paraThree = document.createElement('p');
+  const articleSpan = document.createElement('span');
 
 
+//setup STRUCTURE .appendChild() articleDiv is the parent so we append the kids
+articleDiv.appendChild(titleHeading2);
+articleDiv.appendChild(paraDate);
+articleDiv.appendChild(paraOne);
+articleDiv.appendChild(paraTwo);
+articleDiv.appendChild(paraThree);
+articleDiv.appendChild(articleSpan);
+
+// Set CLASS NAMES
+// article, date, span (articleDiv, paraDate, articleSpan)
+articleDiv.classList.add('article');
+paraDate.classList.add('date');
+articleSpan.classList.add('expandButton');
+
+// SET TEXT CONTENT   .textContent
+// h2, p (span optional verbage)
+// titleHeading2, paraOne, paraTwo, paraThree, articleSpan
+//title, date, firstParagraph
+titleHeading2.textContent = arrayFoo.title;
+paraDate.textContent = arrayFoo.date;
+paraOne.textContent = arrayFoo.firstParagraph;
+paraTwo.textContent = arrayFoo.secondParagraph;
+paraThree.textContent = arrayFoo.thirdParagraph;
+articleSpan.textContent = "Click Here"
+
+//***************STEP 2*************************
+
+
+
+return articleDiv;
+}
 
 
 
