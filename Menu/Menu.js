@@ -50,7 +50,7 @@ buttonForMenu.addEventListener('click', () => {
   menu.classList.toggle('menu--open');
 });
 
-return menu;
+return menu; // step 5
 }
 
 
