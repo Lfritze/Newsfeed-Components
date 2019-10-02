@@ -9,15 +9,46 @@ let menuItems = [
   'Log Out'
 ];
 
+// **************************************************
+//   Step 1: Write a function that will create a menu component as seen below:
+
+document.querySelector('.header').appendChild(buildMenuOut(menuItems));
+
+function buildMenuOut (infoInsideMenu) {
+  const createMenu = document.createElement('div');
+  const createMenuUl = document.createElement('ul');
+
+  // structure------------------------------------
+    createMenu.appendChild(createMenuUl);
+    
+  // set class names --------------------------------
+  createMenu.classList.add('menu');
+
+  //   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
+  // Add those items to the <ul>
+
+  infoInsideMenu.forEach(dataFoo => {
+    // define new element -----------------------
+    const menuThing = document.createElement
+  })
+
+}
+
+
+
+
+
 /* 
-
-  Step 1: Write a function that will create a menu component as seen below:
-
   <div class="menu">
     <ul>
       {each menu item as a list item}
     </ul>
   </div>
+
+
+
+
+  
 
   The function takes an array as its only argument.
 
