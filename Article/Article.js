@@ -88,7 +88,68 @@ const data = [
   }
 ];
 
-//initial commit
+//***********************STEP 1*********************** */
+const articles = document.querySelector('.articles');
+
+function createArticleFunction(array) {
+  // div, h2, p, (3 more seperate <p><p><p>) <span>
+  // DEFINE new elements document.createElement()
+  const articleDiv = document.createElement('div');
+  // now the children
+  const titleHeading2 = document.createElement('h2');
+  const paraDate = document.createElement('p');
+  const paraOne = document.createElement('p');
+  const paraTwo = document.createElement('p');
+  const paraThree = document.createElement('p');
+  const articleSpan = document.createElement('span');
+
+
+//setup STRUCTURE .appendChild() articleDiv is the parent so we append the kids
+articleDiv.appendChild(titleHeading2);
+articleDiv.appendChild(paraDate);
+articleDiv.appendChild(paraOne);
+articleDiv.appendChild(paraTwo);
+articleDiv.appendChild(paraThree);
+articleDiv.appendChild(articleSpan);
+
+// Set CLASS NAMES
+// article, date, span (articleDiv, paraDate, articleSpan)
+articleDiv.classList.add('article');
+paraDate.classList.add('date');
+articleSpan.classList.add('expandButton');
+
+// SET TEXT CONTENT   .textContent
+// h2, p (span optional verbage)
+// titleHeading2, paraOne, paraTwo, paraThree, articleSpan
+//title, date, firstParagraph
+titleHeading2.textContent = array.title;
+paraDate.textContent = array.date;
+paraOne.textContent = array.firstParagraph;
+paraTwo.textContent = array.secondParagraph;
+paraThree.textContent = array.thirdParagraph;
+articleSpan.textContent = "Click Here"
+
+//***************STEP 2*************************
+ // toggle the content of the articles
+ articleSpan.addEventListener('click', () => {
+  articleDiv.classList.toggle('article-open');
+  toggleNext()
+})
+
+// change the text of the btn 
+const toggleNext = () =>{
+  articleDiv.classList.contains('article-open')? span.textContent = 'Minimize' 
+                                                : span.textContent = 'Open Again';
+  }
+  
+  return articleDiv
+
+}
+
+data.map(data => articles.appendChild(createArticleFunction(data)));
+
+
+
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
