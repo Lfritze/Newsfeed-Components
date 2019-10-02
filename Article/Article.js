@@ -118,12 +118,12 @@ function createArticleFunction(array) {
   // DEFINE new elements document.createElement()
   const articleDiv = document.createElement('div');
   // now the children
-  const titleHeading2 = document.createElement('h2');
-  const paraDate = document.createElement('p');
-  const paraOne = document.createElement('p');
-  const paraTwo = document.createElement('p');
-  const paraThree = document.createElement('p');
-  const articleSpan = document.createElement('span');
+    const titleHeading2 = document.createElement('h2');
+    const paraDate = document.createElement('p');
+    const paraOne = document.createElement('p');
+    const paraTwo = document.createElement('p');
+    const paraThree = document.createElement('p');
+    const articleSpan = document.createElement('span');
 
 
 //setup STRUCTURE .appendChild() articleDiv is the parent so we append the kids
@@ -160,8 +160,8 @@ articleSpan.textContent = "Click Here"
 
 // change the text of the btn 
 const toggleNext = () =>{
-  articleDiv.classList.contains('article-open')? span.textContent = 'Minimize' 
-                                                : span.textContent = 'Open Again';
+  articleDiv.classList.contains('article-open')? articleSpan.textContent = 'Minimize' 
+                                                : articleSpan.textContent = 'Open Again';
   }
   
   return articleDiv
